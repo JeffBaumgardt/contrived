@@ -1,0 +1,24 @@
+overwrite: true
+schema: "graphql.schema.json"
+documents: src/**/*.graphql
+generates:
+  src/types/graphql.ts:
+    plugins:
+      - "typescript"
+    config:
+      withHooks: true
+  src/:
+    preset: "near-operation-file"
+    presetConfig:
+      extension: .gqlGen.tsx
+      baseTypesPath: types/graphql.ts
+      importTypesNamespace: SchemaTypes
+    plugins:
+      - "typescript-operations"
+      - "typescript-react-apollo"
+  ./graphql.schema.json:
+    plugins:
+      - "introspection"
+hooks:
+  afterOneFileWrite:
+    - prettier --write
