@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {Routes, Route, MemoryRouter as Router} from 'react-router-dom'
-import {render, screen, act, waitFor, waitForElementToBeRemoved, within} from '@testing-library/react'
+import {render, screen, waitFor, waitForElementToBeRemoved, within} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import {setupServer} from 'msw/node'
 import {graphql} from 'msw'

@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Ship = () => {
     const classes = useStyles()
-    const {rocketId} = useParams()
+    const { rocketId } = useParams()
 
     const {data: rocketData, loading, error} = useGetRocketQuery({
         variables: {
@@ -65,7 +65,7 @@ const Ship = () => {
     }, [rocketData?.rocket])
 
     if (loading) {
-        return <LinearProgress />
+        return <LinearProgress data-testid='loader' />
     }
 
     return (
@@ -77,7 +77,7 @@ const Ship = () => {
                         <Card>
                             <CardHeader
                                 disableTypography
-                                title={<Typography variant="h5">{rocket?.name}:</Typography>}
+                                title={<Typography variant="h5">{rocket?.name}</Typography>}
                             />
                             <CardContent>
                                 <Typography variant="caption">{rocket?.description}</Typography>
