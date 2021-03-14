@@ -1,0 +1,36 @@
+query GetRockets {
+    rockets(limit: 10) {
+        __typename
+        id
+        name
+        description
+        active
+    }
+}
+
+query GetRocket($rocketId: ID!) {
+    rocket(id: $rocketId) {
+        __typename
+        id
+        name
+        description
+        active
+        boosters
+        cost_per_launch
+        engines {
+            number
+            type
+            version
+        }
+        height {
+            feet
+            meters
+        }
+        mass {
+            kg
+            lb
+        }
+        success_rate_pct
+        wikipedia
+    }
+}
